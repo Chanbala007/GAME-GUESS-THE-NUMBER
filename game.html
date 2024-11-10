@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>LET'S PLAY!!</h1>
+        <input type="number" id="inp" placeholder="Enter a number">
+        <input type="button" onclick="fun()" id="btn" value="Guess">
+        <h5 id="num"></h5>
+        <p id="pp">Score: 10</p>
+    </div>
+
+    <script>
+        var inpt = document.getElementById("inp");
+        var scr = document.getElementById("pp");
+        var ran = document.getElementById("num");
+        var score = 10;
+
+        function fun() {
+            var a = Math.floor(Math.random() * 10);
+            if (inpt.value == a) {
+                ran.textContent = "Correct! You guessed it! 🎉";
+                ran.style.color = "#28a745"; 
+            } else {
+                score -= 1;
+                scr.textContent = "Score: " + score;
+                ran.textContent = "Original Number: " + a;
+                ran.style.color = "#dc3545"; 
+            }
+            inpt.value = ""; 
+        }
+    </script>
+</body>
+</html>
